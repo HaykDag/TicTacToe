@@ -29,7 +29,9 @@ board.forEach(el => {
             if(isWin!== "no"){
                 gameOver(playerTurn,isWin)
             }else {
-                makeMove();
+               setTimeout(()=>{
+                    makeMove()
+                },1000)
                 isWin = checkForWin (currBoard,playerTurn);
                 if(isWin!== "no"){
                     gameOver(playerTurn,isWin)
