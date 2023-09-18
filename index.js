@@ -18,10 +18,12 @@ let aiPlayer = "o";
 let playerTurn = huPlayer
 let isWin = "no";
 
+let myTurn = true;
 
 board.forEach(el => {
     el.addEventListener("click", ()=>{
-        if(el.innerText === "" && isWin === "no" ){
+        if(el.innerText === "" && isWin === "no" & myTurn){
+            myTurn = false;
             currBoard[el.id] = "x";
             el.innerText = "x";
             playerTurn = huPlayer;
@@ -29,13 +31,16 @@ board.forEach(el => {
             if(isWin!== "no"){
                 gameOver(playerTurn,isWin)
             }else {
-               setTimeout(()=>{
+                setTimeout(()=>{
                     makeMove()
-                },1000)
-                isWin = checkForWin (currBoard,playerTurn);
+                    isWin = checkForWin (currBoard,playerTurn);
                 if(isWin!== "no"){
                     gameOver(playerTurn,isWin)
-                }       
+                }
+                myTurn = true;
+                },1000)
+                
+                       
             }    
         }
     })
