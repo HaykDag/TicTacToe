@@ -55,6 +55,7 @@ startBnt.addEventListener("click", () =>{
        winner = "";
        endGame.className = "endgame";
        isWin = "no";
+        myTurn = true;
        
 })
 
